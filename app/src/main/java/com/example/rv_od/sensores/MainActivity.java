@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
     TextView txt_encabezado;
     RelativeLayout h_fondo;
+    int x,y,z;
 
 
 
@@ -26,20 +27,23 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         h_fondo = (RelativeLayout) findViewById(R.id.h_fondo);
         txt_encabezado = (TextView) findViewById(R.id.txt_encabezado);
         SensorManager sensorOscar = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensorOscar.registerListener(this,sensorOscar.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),//sensor. -> salen todos los tipos de sensores
-                SensorManager.SENSOR_DELAY_FASTEST);//SensorManager. ->es para la velocidad con la que refresca el sensor (SENSOR_DALY_ FASTER* el mas rapido GAME* para un juego NORMAL*
+        sensorOscar.registerListener(this,sensorOscar.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),//sensor. -> salen todos los tipos de sensores
+                SensorManager.SENSOR_DELAY_NORMAL);//SensorManager. ->es para la velocidad con la que refresca el sensor (SENSOR_DALY_ FASTER* el mas rapido GAME* para un juego NORMAL*
     }
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         //Toast.makeText(getBaseContext(), "Proximidad"+ sensorEvent.values[0], Toast.LENGTH_LONG).show(); //Toast son los mensajitos inseprados que salen
 
-        txt_encabezado.setText("Valor: "+ sensorEvent.values[0]);
+        x = (int) sensorEvent.values[0];
+        y = (int) sensorEvent.values[1];
+        z = (int) sensorEvent.values[2];
 
-        if (sensorEvent.values[0]==0)
-            h_fondo.setBackgroundColor(Color.GREEN);
-        else
-            h_fondo.setBackgroundColor(Color.CYAN);
+        txt_encabezado.setText("Valor: "+ x +", "+ y + ", "+ z);
+        //if (sensorEvent.values[0]==0)
+        //    h_fondo.setBackgroundColor(Color.GREEN);
+        //else
+        //    h_fondo.setBackgroundColor(Color.CYAN);
 
     }
 
