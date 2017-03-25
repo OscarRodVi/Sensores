@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         txt_encabezado.setText("Valor: "+ x +", "+ y + ", "+ z);
         //if (sensorEvent.values[0]==0)
-        //    h_fondo.setBackgroundColor(Color.GREEN);
+            h_fondo.setBackgroundColor(Color.rgb(x*20,y*20,z*20));
         //else
         //    h_fondo.setBackgroundColor(Color.CYAN);
 
