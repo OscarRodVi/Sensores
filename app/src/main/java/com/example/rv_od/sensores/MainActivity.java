@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         h_fondo = (RelativeLayout) findViewById(R.id.h_fondo);
         txt_encabezado = (TextView) findViewById(R.id.txt_encabezado);
         SensorManager sensorOscar = (SensorManager) getSystemService(SENSOR_SERVICE);
-        sensorOscar.registerListener(this,sensorOscar.getDefaultSensor(Sensor.TYPE_PROXIMITY),//sensor. -> salen todos los tipos de sensores
-                SensorManager.SENSOR_DELAY_GAME);//SensorManager. ->es para la velocidad con la que refresca el sensor (SENSOR_DALY_ FASTER* el mas rapido GAME* para un juego NORMAL*
+        sensorOscar.registerListener(this,sensorOscar.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD),//sensor. -> salen todos los tipos de sensores
+                SensorManager.SENSOR_DELAY_FASTEST);//SensorManager. ->es para la velocidad con la que refresca el sensor (SENSOR_DALY_ FASTER* el mas rapido GAME* para un juego NORMAL*
     }
 
     @Override
